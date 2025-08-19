@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端跳转测试页面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f4f4f4;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007cba;
+        }
+        .success {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+        .info {
+            background: #d1ecf1;
+            border-color: #17a2b8;
+            color: #0c5460;
+        }
+        .warning {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+        a {
+            color: #007cba;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007cba;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+        .button:hover {
+            background: #0056b3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>移动端网页自动跳转功能测试</h1>
+    
+    <div class="test-section success">
+        <h2>✅ 功能已成功实现</h2>
+        <p>为您的辩论赛网页成功添加了移动端适配功能：</p>
+        <ul>
+            <li>创建了专门的移动端页面 <code>mobile.html</code></li>
+            <li>添加了自动设备检测和跳转功能</li>
+            <li>设计了移动端专用的响应式样式</li>
+            <li>优化了移动端的用户交互体验</li>
+        </ul>
+    </div>
+
+    <div class="test-section info">
+        <h2>📱 移动端特性</h2>
+        <p>移动端页面包含以下优化：</p>
+        <ul>
+            <li><strong>响应式设计</strong>：完全适配手机屏幕尺寸</li>
+            <li><strong>触摸优化</strong>：优化了触摸操作和手势</li>
+            <li><strong>性能优化</strong>：降低了动画复杂度以节省电量</li>
+            <li><strong>导航优化</strong>：汉堡包菜单，适合单手操作</li>
+            <li><strong>内容重排</strong>：垂直布局，便于滚动浏览</li>
+        </ul>
+    </div>
+
+    <div class="test-section warning">
+        <h2>🔄 自动跳转逻辑</h2>
+        <p>系统会在以下情况自动跳转到移动端：</p>
+        <ul>
+            <li>检测到移动设备的用户代理字符串</li>
+            <li>屏幕宽度小于768px且支持触摸</li>
+            <li>用户可以通过添加 <code>?force_desktop=true</code> 参数强制查看桌面版</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 测试链接</h2>
+        <p>点击下面的链接来测试网页功能：</p>
+        <div>
+            <a href="index.html" class="button">桌面版首页</a>
+            <a href="mobile.html" class="button">移动版首页</a>
+            <a href="index.html?force_desktop=true" class="button">强制桌面版</a>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📁 文件结构</h2>
+        <p>为您创建的文件：</p>
+        <ul>
+            <li><code>mobile.html</code> - 移动端专用页面</li>
+            <li><code>css/mobile-style.css</code> - 移动端样式文件</li>
+            <li><code>js/mobile-main.js</code> - 移动端交互脚本</li>
+            <li><code>js/device-detector.js</code> - 设备检测和跳转脚本</li>
+        </ul>
+        <p>修改的文件：</p>
+        <ul>
+            <li><code>index.html</code> - 添加了设备检测脚本和移动版链接</li>
+            <li><code>css/style.css</code> - 添加了移动版链接样式</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>💡 使用建议</h2>
+        <ul>
+            <li>在不同设备上测试页面效果</li>
+            <li>可以根据需要调整移动端的设计细节</li>
+            <li>建议使用浏览器的开发者工具模拟移动设备进行测试</li>
+            <li>可以进一步优化加载速度和动画效果</li>
+        </ul>
+    </div>
+
+    <script>
+        // 显示当前设备信息
+        document.addEventListener('DOMContentLoaded', function() {
+            const deviceInfo = document.createElement('div');
+            deviceInfo.className = 'test-section info';
+            deviceInfo.innerHTML = `
+                <h2>🔍 当前设备信息</h2>
+                <p><strong>用户代理：</strong> ${navigator.userAgent}</p>
+                <p><strong>屏幕尺寸：</strong> ${window.innerWidth} x ${window.innerHeight}</p>
+                <p><strong>触摸支持：</strong> ${('ontouchstart' in window) ? '是' : '否'}</p>
+                <p><strong>设备内存：</strong> ${navigator.deviceMemory || '未知'} GB</p>
+                <p><strong>CPU核心数：</strong> ${navigator.hardwareConcurrency || '未知'}</p>
+            `;
+            document.body.appendChild(deviceInfo);
+        });
+    </script>
+</body>
+</html>

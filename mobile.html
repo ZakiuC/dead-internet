@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>丧尸互联网理论辩论赛 - 移动版</title>
+    <meta name="description" content="探索AI时代的人类未来：丧尸互联网理论辩论赛，2025年8月23日晚7点在国际礼拜堂举行">
+    <meta name="keywords" content="辩论赛,AI,人工智能,互联网,Dead Internet Theory,丧尸互联网理论">
+    <meta name="author" content="辩论赛组委会">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/mobile-style.css">
+</head>
+
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas class="matrix-canvas" id="matrix"></canvas>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header" id="home">
+        <div class="mobile-nav">
+            <div class="logo-container">
+                <img src="images/logo.png" alt="辩论赛Logo" class="mobile-logo">
+            </div>
+            <button class="mobile-menu-toggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <div class="mobile-nav-menu">
+            <nav class="mobile-nav-links">
+                <a href="#topic" class="nav-link">辩题</a>
+                <a href="#teams" class="nav-link">选手阵容</a>
+                <a href="#rules" class="nav-link">赛制规则</a>
+                <a href="#survey" class="nav-link">赛前调查</a>
+                <a href="#results" class="nav-link">比赛结果</a>
+                <a href="index.html" class="nav-link desktop-link">桌面版</a>
+            </nav>
+        </div>
+
+        <div class="mobile-hero">
+            <h1 class="mobile-title">DEAD INTERNET<br>THEORY</h1>
+            <div class="mobile-subtitle">丧尸互联网理论<br>辩论赛</div>
+            <div class="mobile-info">
+                <div class="info-item">
+                    <span class="icon">🕰️</span>
+                    <span>8月23日 晚7点</span>
+                </div>
+                <div class="info-item">
+                    <span class="icon">📍</span>
+                    <span>国际礼拜堂</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Topic Section -->
+    <section class="mobile-section" id="topic">
+        <div class="mobile-container">
+            <h2 class="section-title">辩题</h2>
+            <div class="topic-card">
+                <div class="topic-question">
+                    <h3>如果<span class="topic-highlight">"丧尸互联网理论"(Dead Internet Theory)</span>成为现实<br>
+                        （即互联网上的多数内容由AI生成和传播，人类真实互动与创造大幅减少）<br><br>
+                        人类社会将步入一个<span class="topic-highlight">更美好</span> / <span
+                            class="topic-highlight">更糟糕</span>的发展阶段</h3>
+                </div>
+                <div class="topic-sides">
+                    <div class="side positive">
+                        <h4>正方观点</h4>
+                        <p>人类社会将步入一个<strong>更美好</strong>的发展阶段</p>
+                        <br>
+                        <p>论证AI主导的互联网环境将带来效率提升、偏见消除、资源优化配置等积极影响</p>
+                    </div>
+                    <div class="side negative">
+                        <h4>反方观点</h4>
+                        <p>人类社会将步入一个<strong>更糟糕</strong>的发展阶段</p>
+                        <br>
+                        <p>论证AI主导将导致人类创造力衰退、真实性缺失、社会连接感丧失等消极后果</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Teams Section -->
+    <section class="mobile-section" id="teams">
+        <div class="mobile-container">
+            <h2 class="section-title">选手阵容</h2>
+            <div class="teams-container">
+                <div class="team positive-team">
+                    <h3>正方队伍</h3>
+                    <div class="team-members">
+                        <div class="member">
+                            <div class="member-role">一辩</div>
+                            <div class="member-name">杜蒙爱</div>
+                        </div>
+                        <div class="member">
+                            <div class="member-role">二辩</div>
+                            <div class="member-name">戴罗希</div>
+                        </div>
+                        <div class="member">
+                            <div class="member-role">三辩</div>
+                            <div class="member-name">黎琪琪</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="team negative-team">
+                    <h3>反方队伍</h3>
+                    <div class="team-members">
+                        <div class="member">
+                            <div class="member-role">一辩</div>
+                            <div class="member-name">陈超众</div>
+                        </div>
+                        <div class="member">
+                            <div class="member-role">二辩</div>
+                            <div class="member-name">应雯欣</div>
+                        </div>
+                        <div class="member">
+                            <div class="member-role">三辩</div>
+                            <div class="member-name">袁嘉呈</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Rules Section -->
+    <section class="mobile-section" id="rules">
+        <div class="mobile-container">
+            <h2 class="section-title">赛制规则</h2>
+            <div class="rules-timeline">
+                <div class="rule-item">
+                    <div class="rule-time">5分钟</div>
+                    <div class="rule-content">正方一辩立论</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-time">5分钟</div>
+                    <div class="rule-content">反方一辩立论</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-time">3分钟</div>
+                    <div class="rule-content">正方二辩质询</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-time">3分钟</div>
+                    <div class="rule-content">反方二辩质询</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-time">8分钟</div>
+                    <div class="rule-content">自由辩论环节</div>
+                </div>
+                <div class="rule-item">
+                    <div class="rule-time">10分钟</div>
+                    <div class="rule-content">正反双方总结陈词</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Survey Section -->
+    <section class="mobile-section" id="survey">
+        <div class="mobile-container">
+            <h2 class="section-title">赛前调查</h2>
+            <div class="mobile-survey-container">
+                <div class="mobile-survey-intro">
+                    <h3>参与互动投票</h3>
+                    <p>扫描下方二维码，参与我们的问卷调查，分享你对"丧尸互联网理论"的看法。</p>
+                </div>
+
+                <div class="mobile-qr-section">
+                    <div class="mobile-qr-wrapper">
+                        <img src="images/QRcode.png" alt="投票问卷二维码" class="mobile-qr-code">
+                        <div class="mobile-qr-glow"></div>
+                    </div>
+                    <div class="mobile-qr-info">
+                        <div class="mobile-qr-title">微信扫码投票</div>
+                        <div class="mobile-qr-subtitle">参与赛前互动</div>
+                    </div>
+                </div>
+
+                <div class="mobile-survey-link">
+                    <a href="https://weixin.kaayun.com/v/5da9e5854d29439f8acc8116d83cedf0" class="mobile-link-button"
+                        target="_blank" rel="noopener noreferrer">
+                        直接访问投票页面 →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Results Section -->
+    <section class="mobile-section" id="results">
+        <div class="mobile-container">
+            <h2 class="section-title">比赛结果</h2>
+            <div class="results-placeholder">
+                <div class="result-icon">🏆</div>
+                <p>比赛尚未开始</p>
+                <p class="result-time">结果将在比赛结束后公布</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile Footer -->
+    <footer class="mobile-footer">
+        <div class="mobile-container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>联系我</h3>
+                    <p>赛事主席</p>
+                    <p>📧 z2337070680@163.com</p>
+                    <p>Wechat: Zakiu-C</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">查看桌面版</a>
+                    <a href="#home" class="footer-link">返回顶部</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 丧尸互联网理论辩论赛. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/mobile-main.js"></script>
+</body>
+
+</html>

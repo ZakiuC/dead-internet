@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>丧尸互联网理论 - 辩论赛 | Dead Internet Theory Debate</title>
+    <meta name="description" content="探索AI时代的人类未来：丧尸互联网理论辩论赛，2025年8月23日晚7点在国际礼拜堂举行">
+    <meta name="keywords" content="辩论赛,AI,人工智能,互联网,Dead Internet Theory,丧尸互联网理论">
+    <meta name="author" content="辩论赛组委会">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 移动端设备检测和跳转脚本 -->
+    <script src="js/device-detector.js"></script>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-text">LOADING...</div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Particles Container -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <!-- Matrix Rain Background -->
+    <canvas class="matrix-canvas" id="matrix"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">DEAD INTERNET</a>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="#topic">辩题</a></li>
+                <li><a href="#teams">选手阵容</a></li>
+                <li><a href="#rules">赛制规则</a></li>
+                <li><a href="#survey">赛前调查</a></li>
+                <li><a href="#results">比赛结果</a></li>
+                <li><a href="mobile.html" class="mobile-link">移动版</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="home">
+        <img src="images/logo.png" alt="辩论赛Logo" class="logo floating interactive-element">
+        <h1 class="main-title">DEAD INTERNET THEORY</h1>
+        <div class="subtitle fade-in">丧尸互联网理论 - 辩论赛</div>
+        <div class="date-location fade-in">
+            <div>🕰️ 2025年8月23日 晚7点</div>
+            <div>📍 国际礼拜堂</div>
+        </div>
+        <a href="#topic" class="scroll-down-indicator interactive-element" aria-label="滚动到下一部分">
+            <span></span>
+        </a>
+    </header>
+
+    <!-- Topic Section -->
+    <section class="section fade-in" id="topic">
+        <h2 class="section-title scale-in">// 辩题解析 TOPIC ANALYSIS //</h2>
+        <div class="topic-container interactive-element">
+            <div class="topic-text slide-in-left">
+                如果<span class="topic-highlight">"丧尸互联网理论"(Dead Internet Theory)</span>成为现实<br>
+                （即互联网上的多数内容由AI生成和传播，人类真实互动与创造大幅减少）<br><br>
+                人类社会将步入一个<span class="topic-highlight">更美好</span> / <span class="topic-highlight">更糟糕</span>的发展阶段
+            </div>
+            
+            <div class="sides-container">
+                <div class="side-card positive-side slide-in-left interactive-element">
+                    <div class="side-title">正方 POSITIVE</div>
+                    <p>人类社会将步入一个<strong>更美好</strong>的发展阶段</p>
+                    <br>
+                    <p>论证AI主导的互联网环境将带来效率提升、偏见消除、资源优化配置等积极影响</p>
+                </div>
+                <div class="side-card negative-side slide-in-right interactive-element">
+                    <div class="side-title">反方 NEGATIVE</div>
+                    <p>人类社会将步入一个<strong>更糟糕</strong>的发展阶段</p>
+                    <br>
+                    <p>论证AI主导将导致人类创造力衰退、真实性缺失、社会连接感丧失等消极后果</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section class="section fade-in" id="teams">
+        <h2 class="section-title scale-in">// 选手阵容 DEBATER LINEUP //</h2>
+        <div class="teams-grid">
+            <div class="team-card team-positive slide-in-left interactive-element">
+                <div class="team-title">正方队伍</div>
+                <div class="debater">
+                    <div class="debater-role">一辩 - 立论陈词</div>
+                    <div class="debater-name">杜蒙爱</div>
+                </div>
+                <div class="debater">
+                    <div class="debater-role">二辩 - 质询主力</div>
+                    <div class="debater-name">戴罗希</div>
+                </div>
+                <div class="debater">
+                    <div class="debater-role">三辩 - 总结陈词</div>
+                    <div class="debater-name">黎琪琪</div>
+                </div>
+            </div>
+            
+            <div class="team-card team-negative slide-in-right interactive-element">
+                <div class="team-title">反方队伍</div>
+                <div class="debater">
+                    <div class="debater-role">一辩 - 立论陈词</div>
+                    <div class="debater-name">陈超众</div>
+                </div>
+                <div class="debater">
+                    <div class="debater-role">二辩 - 质询主力</div>
+                    <div class="debater-name">应雯欣</div>
+                </div>
+                <div class="debater">
+                    <div class="debater-role">三辩 - 总结陈词</div>
+                    <div class="debater-name">袁嘉呈</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="section fade-in" id="rules">
+        <h2 class="section-title scale-in">// 赛制规则 COMPETITION RULES //</h2>
+        <div class="rules-container">
+            <div class="rules-flow">
+                <div class="rule-step fade-in interactive-element">
+                    <div class="step-number pulse-rotate">01</div>
+                    <div class="step-content">
+                        <div class="rule-title">立论陈词</div>
+                        <p>正反方一辩各5分钟，阐述核心观点、论据和论证框架</p>
+                    </div>
+                </div>
+                
+                <div class="rule-step fade-in interactive-element">
+                    <div class="step-number pulse-rotate">02</div>
+                    <div class="step-content">
+                        <div class="rule-title">质询环节</div>
+                        <p>反方二辩质询正方一辩3分钟，正方二辩质询反方一辩3分钟</p>
+                    </div>
+                </div>
+                
+                <div class="rule-step fade-in interactive-element">
+                    <div class="step-number pulse-rotate">03</div>
+                    <div class="step-content">
+                        <div class="rule-title">自由辩论</div>
+                        <p>双方所有辩手参与，总时长8分钟，交替发言，每次25-40秒</p>
+                    </div>
+                </div>
+                
+                <div class="rule-step fade-in interactive-element">
+                    <div class="step-number pulse-rotate">04</div>
+                    <div class="step-content">
+                        <div class="rule-title">总结陈词</div>
+                        <p>反方三辩、正方三辩各5分钟，系统梳理论证并价值升华</p>
+                    </div>
+                </div>
+                
+                <div class="rule-step fade-in interactive-element">
+                    <div class="step-number pulse-rotate">05</div>
+                    <div class="step-content">
+                        <div class="rule-title">评分机制</div>
+                        <p>评委60% + 观众40%，综合论证质量、反驳质效、团队协作</p>
+                    </div>
+                </div>
+                
+                <div class="rule-step fade-in interactive-element">
+                    <div class="step-number pulse-rotate">06</div>
+                    <div class="step-content">
+                        <div class="rule-title">时间控制</div>
+                        <p>总时长约45分钟，包含评议和点评环节</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Survey Section -->
+    <section class="section fade-in" id="survey">
+        <h2 class="section-title scale-in">// 赛前调查 AUDIENCE SURVEY //</h2>
+        <div class="survey-container">
+            <div class="survey-intro slide-in-left">
+                <h3 class="survey-title">参与互动投票</h3>
+                <p class="survey-description">
+                    扫描下方二维码，参与我们的问卷调查<br>
+                    分享你对"丧尸互联网理论"的看法，并为你支持的观点投票
+                </p>
+            </div>
+            
+            <div class="qr-container slide-in-right">
+                <div class="qr-wrapper">
+                    <img src="images/QRcode.png" alt="投票问卷二维码" class="qr-code interactive-element">
+                    <div class="qr-glow"></div>
+                </div>
+                <div class="qr-info">
+                    <div class="qr-title">微信扫码投票</div>
+                    <div class="qr-subtitle">参与赛前互动</div>
+                    <a href="https://weixin.kaayun.com/v/5da9e5854d29439f8acc8116d83cedf0" 
+                       class="survey-link interactive-element" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        直接访问投票页面 →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="section fade-in" id="results">
+        <h2 class="section-title">// 比赛结果 RESULTS //</h2>
+        <div class="results-container">
+            <div class="results-placeholder">⏳ 比赛进行中...</div>
+            <div class="results-text">
+                比赛结束后，此处将更新：<br>
+                • 获胜队伍<br>
+                • 最佳辩手<br>
+                • 精彩瞬间回顾<br>
+                • 评委点评总结
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div>© 2025 Dead Internet Theory Debate | 探索AI时代的人类未来</div>
+        <div style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.9rem;">
+            版权所有 © 2025 zakiu | All Rights Reserved
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
