@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>评分细则 - 丧尸互联网理论辩论赛</title>
+    <meta name="description" content="丧尸互联网理论辩论赛评分细则详解">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .detail-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 20px;
+            background: rgba(0, 20, 0, 0.8);
+            border: 1px solid var(--matrix-green);
+            border-radius: 10px;
+            box-shadow: var(--shadow-green);
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--matrix-green);
+            color: var(--matrix-green);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .back-button:hover {
+            background: var(--matrix-green);
+            color: var(--bg-black);
+            box-shadow: var(--shadow-green);
+        }
+        
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .detail-container {
+                margin: 80px 10px 30px;
+                padding: 15px;
+            }
+            
+            .detail-title {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .scoring-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .scoring-card {
+                padding: 1rem;
+            }
+            
+            .scoring-title {
+                font-size: 1.1rem;
+            }
+            
+            .weight-display {
+                font-size: 1rem;
+            }
+            
+            .criteria-list li {
+                margin-bottom: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .detail-container {
+                margin: 70px 5px 20px;
+                padding: 10px;
+            }
+            
+            .detail-title {
+                font-size: 1.8rem;
+            }
+            
+            .back-button {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .scoring-card {
+                padding: 0.8rem;
+            }
+        }
+        
+        .detail-title {
+            color: var(--matrix-green);
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 10px var(--matrix-green);
+        }
+        
+        .section-header {
+            color: var(--blue-cyber);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            border-bottom: 2px solid var(--blue-cyber);
+            padding-bottom: 10px;
+        }
+        
+        .overview-box {
+            background: rgba(0, 212, 255, 0.05);
+            border: 2px solid var(--blue-cyber);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .scoring-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--matrix-green);
+        }
+        
+        .scoring-table th,
+        .scoring-table td {
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        .scoring-table th {
+            background: rgba(0, 255, 65, 0.1);
+            color: var(--matrix-green);
+            font-family: 'Orbitron', monospace;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .scoring-table td {
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+        
+        .criteria-name {
+            color: var(--matrix-green);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .score-cell {
+            color: var(--blue-cyber);
+            font-weight: bold;
+            font-family: 'Orbitron', monospace;
+            text-align: center;
+            width: 80px;
+        }
+        
+        .input-cell {
+            background: rgba(0, 255, 65, 0.05);
+            text-align: center;
+            width: 100px;
+        }
+        
+        .total-row {
+            background: rgba(0, 255, 65, 0.1);
+            font-weight: bold;
+        }
+        
+        .total-row td {
+            color: var(--matrix-green);
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .penalty-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(64, 0, 0, 0.3);
+            border: 1px solid var(--red-warning);
+        }
+        
+        .penalty-table th,
+        .penalty-table td {
+            border: 1px solid rgba(255, 0, 64, 0.3);
+            padding: 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        .penalty-table th {
+            background: rgba(255, 0, 64, 0.1);
+            color: var(--red-warning);
+            font-family: 'Orbitron', monospace;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .penalty-table td {
+            color: var(--text-white);
+        }
+        
+        .calculation-box {
+            background: rgba(255, 255, 0, 0.05);
+            border: 2px solid rgba(255, 255, 0, 0.3);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .calculation-title {
+            color: #ffffcc;
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .formula-box {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: 'Fira Code', monospace;
+            border-left: 4px solid var(--matrix-green);
+        }
+        
+        .example-box {
+            background: rgba(0, 255, 65, 0.05);
+            border: 1px solid var(--dark-green);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .content-text {
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .content-text strong {
+            color: var(--matrix-green);
+        }
+        
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .bullet-list li {
+            margin: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .bullet-list li::before {
+            content: "►";
+            position: absolute;
+            left: 0;
+            color: var(--matrix-green);
+            font-weight: bold;
+        }
+        
+        .highlight-text {
+            background: rgba(255, 255, 0, 0.2);
+            color: #ffffcc;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .numbered-list {
+            counter-reset: list-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .numbered-list li {
+            counter-increment: list-counter;
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .numbered-list li::before {
+            content: counter(list-counter) ".";
+            position: absolute;
+            left: 0;
+            color: var(--matrix-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas class="matrix-canvas" id="matrix"></canvas>
+    
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">← 返回主页</a>
+    
+    <!-- Main Content -->
+    <div class="detail-container">
+        <h1 class="detail-title">// 评分细则 SCORING SYSTEM //</h1>
+        
+        <!-- General Rules -->
+        <h2 class="section-header">评分机制总则</h2>
+        <ol class="numbered-list">
+            <li><strong>评分主体：</strong>
+                <ul class="bullet-list" style="margin-top: 10px;">
+                    <li>评委(权重60%)</li>
+                    <li>现场/在线（有的话）观众（权重40%）</li>
+                </ul>
+            </li>
+            <li><strong>结果类型：</strong>
+                <ul class="bullet-list" style="margin-top: 10px;">
+                    <li>团体胜负（综合评委分+观众票）</li>
+                    <li>最佳辩手（评委提名+观众票决）</li>
+                </ul>
+            </li>
+            <li><strong>评分流程：</strong>
+                <ol class="numbered-list" style="margin-top: 10px;">
+                    <li>评委独立填写评分表（含团体分+个人分）</li>
+                    <li>主席汇总：计算每位评委给出的<span class="highlight-text">团体分差</span>和<span class="highlight-text">个人最高分</span></li>
+                    <li>胜负判定：按多数评委支持的队伍确定胜方</li>
+                    <li>最佳辩手：按多数评委给出的最高分辩手综合观众投票确定</li>
+                </ol>
+            </li>
+        </ol>
+        
+        <!-- Team Performance -->
+        <h2 class="section-header">一、团体表现评分（70分）</h2>
+        
+        <table class="scoring-table">
+            <thead>
+                <tr>
+                    <th>评分维度</th>
+                    <th>评分标准</th>
+                    <th>满分</th>
+                    <th>正方得分</th>
+                    <th>反方得分</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="criteria-name">1. 论证质量<br>(25分)</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li>立论框架完整性、逻辑严谨性</li>
+                            <li>核心论点清晰度与深度</li>
+                            <li>论据（事例/数据/理论）的<strong>相关性、权威性、充分性</strong></li>
+                            <li>价值升华的合理性</li>
+                        </ul>
+                    </td>
+                    <td class="score-cell">25</td>
+                    <td class="input-cell"></td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr>
+                    <td class="criteria-name">2. 反驳质效<br>(25分)</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li>质询环节的<strong>针对性、杀伤力</strong>（是否有效暴露漏洞）</li>
+                            <li>自由辩论中的<strong>即时反驳能力</strong></li>
+                            <li>对对方核心论点的<strong>拆解深度</strong></li>
+                            <li>防守应对的<strong>有效性、灵活性</strong></li>
+                        </ul>
+                    </td>
+                    <td class="score-cell">25</td>
+                    <td class="input-cell"></td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr>
+                    <td class="criteria-name">3. 团队协作<br>(20分)</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li>环节间<strong>逻辑衔接</strong>（立论→质询→自由辩→总结）</li>
+                            <li>自由辩论中<strong>战术配合、发言分配</strong>合理性</li>
+                            <li>是否存在矛盾或自我反驳</li>
+                            <li>整体策略的<strong>一致性</strong></li>
+                        </ul>
+                    </td>
+                    <td class="score-cell">20</td>
+                    <td class="input-cell"></td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr class="total-row">
+                    <td><strong>团体总分</strong></td>
+                    <td></td>
+                    <td><strong>70</strong></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Individual Performance -->
+        <h2 class="section-header">二、个人表现评分（30分）</h2>
+        <p class="content-text" style="font-style: italic; color: var(--blue-cyber); margin-bottom: 20px;">
+            评分说明：根据辩位职责差异化评分，每位辩手满分30分
+        </p>
+        
+        <table class="scoring-table">
+            <thead>
+                <tr>
+                    <th>辩手</th>
+                    <th>评分维度与标准</th>
+                    <th>满分</th>
+                    <th>得分</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="criteria-name">正方一辩</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li>立论陈词：结构清晰/论证扎实/表达流畅（15分）</li>
+                            <li>质询回答：简洁准确/无回避漏洞（10分）</li>
+                            <li>自由辩论贡献度（5分）</li>
+                        </ul>
+                    </td>
+                    <td class="score-cell">30</td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr>
+                    <td class="criteria-name">正方二辩</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li>质询设计：逻辑缜密/攻击性强（10分）</li>
+                            <li>自由辩论：核心输出/反驳精准/推进论点（15分）</li>
+                            <li>团队协作（5分）</li>
+                        </ul>
+                    </td>
+                    <td class="score-cell">30</td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr>
+                    <td class="criteria-name">正方三辩</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li>自由辩论：关键战场把控/补位能力（10分）</li>
+                            <li>总结陈词：梳理全局/强化优势/升华价值（15分）</li>
+                            <li>反驳漏洞能力（5分）</li>
+                        </ul>
+                    </td>
+                    <td class="score-cell">30</td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr>
+                    <td class="criteria-name">反方一辩</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li>立论陈词：结构清晰/论证扎实/针对性预判（15分）</li>
+                            <li>质询回答：简洁准确/无回避漏洞（10分）</li>
+                            <li>自由辩论贡献度（5分）</li>
+                        </ul>
+                    </td>
+                    <td class="score-cell">30</td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr>
+                    <td class="criteria-name">反方二辩</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li>质询设计：逻辑缜密/攻击性强（10分）</li>
+                            <li>自由辩论：核心输出/反驳精准/推进论点（15分）</li>
+                            <li>团队协作（5分）</li>
+                        </ul>
+                    </td>
+                    <td class="score-cell">30</td>
+                    <td class="input-cell"></td>
+                </tr>
+                <tr>
+                    <td class="criteria-name">反方三辩</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li>自由辩论：关键战场把控/补位能力（10分）</li>
+                            <li>总结陈词：梳理全局/强化优势/升华价值（15分）</li>
+                            <li>反驳漏洞能力（5分）</li>
+                        </ul>
+                    </td>
+                    <td class="score-cell">30</td>
+                    <td class="input-cell"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Penalties -->
+        <h2 class="section-header">三、关键扣分项（直接于总分中扣除）</h2>
+        <p class="content-text" style="font-style: italic; color: var(--red-warning); margin-bottom: 20px;">
+            注：由主席记录，评委确认后执行
+        </p>
+        
+        <table class="penalty-table">
+            <thead>
+                <tr>
+                    <th>违规行为</th>
+                    <th>扣分</th>
+                    <th>执行方</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>发言超时（>10秒）</td>
+                    <td style="color: var(--red-warning); font-weight: bold;">-1分/次</td>
+                    <td>主席</td>
+                </tr>
+                <tr>
+                    <td>质询环节回答方回避问题</td>
+                    <td style="color: var(--red-warning); font-weight: bold;">-2分/次</td>
+                    <td>评委</td>
+                </tr>
+                <tr>
+                    <td>总结陈词引入全新论点</td>
+                    <td style="color: var(--red-warning); font-weight: bold;">-3分/次</td>
+                    <td>评委</td>
+                </tr>
+                <tr>
+                    <td>自由辩论抢答/干扰对方</td>
+                    <td style="color: var(--red-warning); font-weight: bold;">-1分/次</td>
+                    <td>主席</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Calculation -->
+        <h2 class="section-header">计分与结果判定流程</h2>
+        
+        <div class="calculation-box">
+            <div class="calculation-title">团体胜负判定</div>
+            
+            <table class="scoring-table">
+                <thead>
+                    <tr>
+                        <th>评分主体</th>
+                        <th>计分方式</th>
+                        <th>权重</th>
+                        <th>满分</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="criteria-name">专业评委</td>
+                        <td>按原标准评分（[团体总分70分] × 换算系数 <strong>0.857</strong> → 折合为60分）</td>
+                        <td class="score-cell">60%</td>
+                        <td class="score-cell">60分</td>
+                    </tr>
+                    <tr>
+                        <td class="criteria-name">观众投票</td>
+                        <td>观众投<strong>支持立场</strong>（正方/反方），按票数比例折合：<br>
+                            <div class="formula-box">
+                                <code>(本方得票 / 总有效票) × 40分</code>
+                            </div>
+                        </td>
+                        <td class="score-cell">40%</td>
+                        <td class="score-cell">40分</td>
+                    </tr>
+                    <tr class="total-row">
+                        <td><strong>团体总分</strong></td>
+                        <td>评委折合分 + 观众折合分</td>
+                        <td><strong>100%</strong></td>
+                        <td><strong>100分</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="example-box">
+                <div style="color: var(--matrix-green); font-weight: bold; margin-bottom: 10px;">示例：</div>
+                <ul class="bullet-list">
+                    <li>评委给正方团体分：50/70 → 折合：<code>50 × 0.857 ≈ 42.9分</code></li>
+                    <li>观众投票：正方120票，反方80票，总票200 → 正方观众分：<code>(120/200)×40=24分</code></li>
+                    <li>正方总分：<code>42.9 + 24 = 66.9分</code> → <strong style="color: var(--matrix-green);">胜出</strong></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="calculation-box">
+            <div class="calculation-title">最佳辩手评选</div>
+            <ol class="numbered-list">
+                <li><strong>个人分数：</strong> 根据个人分数，得分最高的两位选手获得提名。</li>
+                <li><strong>观众投票：</strong> 观众在<span class="highlight-text">被提名的2人</span>中投票选出最佳辩手。</li>
+                <li><strong>平票处理：</strong> 若观众投票平票，优先选择评委评分更高的辩手。</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -174,6 +174,39 @@ body {
     text-shadow: 0 0 10px rgba(0, 212, 255, 0.5) !important;
 }
 
+/* 移动端导航详细链接区域 */
+.nav-detail-section {
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 255, 65, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.nav-detail-title {
+    font-size: 0.9rem;
+    color: var(--matrix-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.nav-link.detail-link {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+    margin: 0.3rem 0;
+    background: rgba(0, 255, 65, 0.05);
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    border-radius: 5px;
+}
+
+.nav-link.detail-link:hover,
+.nav-link.detail-link:active {
+    background: rgba(0, 255, 65, 0.15);
+    border-color: var(--matrix-green);
+}
+
 /* ================================
    移动端英雄区域
    ================================ */
@@ -579,6 +612,58 @@ body {
     padding-top: 1.5rem;
 }
 
+/* ================================
+   移动端详细链接样式
+   ================================ */
+.mobile-detail-links {
+    margin-top: 1.5rem;
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.mobile-detail-button {
+    display: block;
+    background: rgba(0, 255, 65, 0.1);
+    border: 1px solid var(--matrix-green);
+    color: var(--matrix-green);
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem 0;
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.mobile-detail-button:hover,
+.mobile-detail-button:active {
+    background: var(--matrix-green);
+    color: var(--bg-black);
+    box-shadow: var(--shadow-green);
+    transform: translateY(-1px);
+}
+
+.mobile-detail-button.primary {
+    background: rgba(0, 255, 65, 0.15);
+}
+
+.mobile-detail-button.secondary {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--blue-cyber);
+    color: var(--blue-cyber);
+}
+
+.mobile-detail-button.secondary:hover,
+.mobile-detail-button.secondary:active {
+    background: var(--blue-cyber);
+    color: var(--bg-black);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
 .mobile-feature-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -740,6 +825,12 @@ body {
         grid-template-columns: 1fr;
         gap: 0.8rem;
     }
+    
+    .mobile-detail-button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+        margin: 0.4rem 0;
+    }
 }
 
 @media (max-width: 360px) {
@@ -778,6 +869,21 @@ body {
     .mobile-qr-glow {
         width: 140px;
         height: 140px;
+    }
+    
+    .mobile-detail-button {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .nav-detail-title {
+        font-size: 0.8rem;
+    }
+    
+    .nav-link.detail-link {
+        font-size: 0.85rem;
+        padding: 0.5rem 1.2rem;
     }
     
     .mobile-link-button {

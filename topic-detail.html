@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>辩题详解 - 丧尸互联网理论辩论赛</title>
+    <meta name="description" content="丧尸互联网理论辩论赛辩题详细解析">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .detail-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 20px;
+            background: rgba(0, 20, 0, 0.8);
+            border: 1px solid var(--matrix-green);
+            border-radius: 10px;
+            box-shadow: var(--shadow-green);
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--matrix-green);
+            color: var(--matrix-green);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .back-button:hover {
+            background: var(--matrix-green);
+            color: var(--bg-black);
+            box-shadow: var(--shadow-green);
+        }
+        
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .detail-container {
+                margin: 80px 10px 30px;
+                padding: 15px;
+            }
+            
+            .detail-title {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .concept-item {
+                margin-bottom: 1.5rem;
+            }
+            
+            .concept-title {
+                font-size: 1.1rem;
+            }
+            
+            .focus-item {
+                margin-bottom: 1.2rem;
+            }
+            
+            .focus-title {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .detail-container {
+                margin: 70px 5px 20px;
+                padding: 10px;
+            }
+            
+            .detail-title {
+                font-size: 1.8rem;
+            }
+            
+            .back-button {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+        
+        .detail-title {
+            color: var(--matrix-green);
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 10px var(--matrix-green);
+        }
+        
+        .section-header {
+            color: var(--blue-cyber);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            border-bottom: 2px solid var(--blue-cyber);
+            padding-bottom: 10px;
+        }
+        
+        .definition-item {
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 4px solid var(--blue-cyber);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .definition-term {
+            color: var(--matrix-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .focus-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .focus-item {
+            background: rgba(255, 0, 64, 0.05);
+            border: 1px solid rgba(255, 0, 64, 0.3);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .focus-item:hover {
+            background: rgba(255, 0, 64, 0.1);
+            border-color: var(--red-warning);
+        }
+        
+        .focus-title {
+            color: var(--red-warning);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+        
+        .task-box {
+            background: rgba(0, 255, 65, 0.05);
+            border: 2px solid var(--dark-green);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .task-title {
+            color: var(--matrix-green);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-box {
+            background: rgba(255, 255, 0, 0.1);
+            border: 1px solid rgba(255, 255, 0, 0.5);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            color: #ffffcc;
+        }
+        
+        .content-text {
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .content-text strong {
+            color: var(--matrix-green);
+        }
+        
+        .numbered-list {
+            counter-reset: list-counter;
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .numbered-list li {
+            counter-increment: list-counter;
+            margin: 15px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .numbered-list li::before {
+            content: counter(list-counter) ".";
+            position: absolute;
+            left: 0;
+            color: var(--matrix-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas class="matrix-canvas" id="matrix"></canvas>
+    
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">← 返回主页</a>
+    
+    <!-- Main Content -->
+    <div class="detail-container">
+        <h1 class="detail-title">// 辩题详解 TOPIC ANALYSIS //</h1>
+        
+        <!-- Main Topic -->
+        <div class="highlight-box">
+            <h2 style="color: var(--matrix-green); margin-bottom: 20px;">辩题</h2>
+            <p class="content-text" style="font-size: 1.2rem; text-align: center;">
+                如果<strong>"丧尸互联网理论"(Dead Internet Theory)</strong>成为现实（即互联网上的多数内容由AI生成和传播，人类真实互动与创造大幅减少），人类社会将步入一个（正方）<strong>更美好</strong> / （反方）<strong>更糟糕</strong>的发展阶段。
+            </p>
+        </div>
+        
+        <!-- Core Concepts -->
+        <h2 class="section-header">一. 核心概念定义</h2>
+        
+        <div class="definition-item">
+            <div class="definition-term">"丧尸互联网理论"(Dead Internet Theory) 成真：</div>
+            <p class="content-text">在本辩题语境下，特指以下核心情形成为普遍现实：</p>
+            <ol class="numbered-list">
+                <li><strong>内容生成主体转变：</strong> 互联网上公开可见的、流通的、具有影响力的多数内容（包括但不限于文本、图像、音频、视频、社交媒体帖子、评论、新闻资讯等）并非由人类直接创作，而是由人工智能(AI)系统自动生成或深度参与创作。</li>
+                <li><strong>传播与互动主体转变：</strong> 内容的传播、扩散、评论、点赞、转发等互动行为，主要由AI驱动的机器人账号（Bot）或算法模拟完成，而非基于真实人类用户的意图和行动。</li>
+                <li><strong>人类角色边缘化：</strong> 真实人类用户在互联网上的主动创作、深度互动、自发社区形成等活动大幅减少或影响力显著下降，人类更多地成为信息的被动消费者或被算法引导的对象。</li>
+            </ol>
+        </div>
+        
+        <div class="definition-item">
+            <div class="definition-term">"人类社会"：</div>
+            <p class="content-text">指全球范围内的人类社会结构、文化、经济、政治、心理状态等综合体系。</p>
+        </div>
+        
+        <div class="definition-item">
+            <div class="definition-term">"更美好/更糟糕的发展阶段"：</div>
+            <p class="content-text">指与"DIT未成真"的现状（或可合理预期的、未受DIT主导的未来发展路径）相比，人类社会在整体福祉、发展潜力、稳定性、公平性、文化活力、个体自由与满足感等核心维度上的综合比较结果。评判标准需由辩手在论证中合理阐释和建立。</p>
+        </div>
+        
+        <!-- Debate Focus -->
+        <h2 class="section-header">二. 辩论焦点(参考)</h2>
+        <p class="content-text">双方需围绕DIT成真后对人类社会产生的系统性、结构性影响进行深入分析，重点探讨但不限于以下维度：</p>
+        
+        <ul class="focus-list">
+            <li class="focus-item">
+                <div class="focus-title">信息生态与认知</div>
+                <p class="content-text">
+                    · 信息真实性、可靠性、多样性如何变化？（假信息泛滥 vs 更精准/无偏见信息？）<br>
+                    · 人类获取信息、形成观点、进行公共讨论的方式将如何改变？（认知窄化 vs 效率提升？）<br>
+                    · 信任危机（对信息、机构、他人）会加剧还是缓解？
+                </p>
+            </li>
+            <li class="focus-item">
+                <div class="focus-title">文化发展与创新</div>
+                <p class="content-text">
+                    · 人类原创文化（艺术、文学、思想等）是繁荣还是衰败？（AI辅助创作 vs 人类创造力萎缩？）<br>
+                    · 文化多样性是增强（AI模拟多元）还是削弱（同质化输出）？<br>
+                    · 知识的生产、传播与积累模式如何变革？
+                </p>
+            </li>
+            <li class="focus-item">
+                <div class="focus-title">政治参与与治理</div>
+                <p class="content-text">
+                    · 公共舆论的形成与表达是更理性还是更易被操控？（AI精准宣传 vs 消除人类偏见？）<br>
+                    · 民主协商、公民参与、社会监督的机制如何演变？<br>
+                    · 政府治理、政策制定如何适应或利用这一环境？（效率提升 vs 监控强化？）
+                </p>
+            </li>
+        </ul>
+        
+        <!-- Important Notes -->
+        <h2 class="section-header">三. 重要说明与提示</h2>
+        
+        <ol class="numbered-list">
+            <li><strong>"如果成真"的前提：</strong> 本次辩论基于假设性前提展开，即DIT所描述的状态成为主导性现实。请聚焦于分析该状态下的影响，而非争论DIT在现实中是否已经或必将完全成真。</li>
+            <li><strong>"多数"的界定：</strong> "多数"是一个相对概念，旨在强调AI生成和传播的内容成为主流和主导力量，显著改变了互联网的本质属性。具体量化比例可由辩手在合理范围内阐释。</li>
+            <li><strong>综合比较：</strong> 论证"更好"或"更坏"时，需进行多维度、系统性的综合权衡。承认该状态可能同时带来积极和消极影响，关键在于论证何者占据主导地位，以及对人类社会核心价值的最终影响是利大于弊还是弊大于利。</li>
+            <li><strong>避免极端化：</strong> DIT成真不等同于"人类灭绝"或"AI统治"。请基于给定定义，探讨在人类依然存在并参与其中的社会里，这种新型信息生态带来的深刻变革及其后果。</li>
+            <li><strong>解决方案的边界：</strong> 核心仍是预测和评估影响。虽然可以提及可能的应对措施（如监管、教育）来说明影响的可控性或严重性，但重点不在于设计具体的解决方案，而在于论证该状态本身对社会发展的整体利弊。</li>
+        </ol>
+        
+        <!-- Core Tasks -->
+        <h2 class="section-header">四. 正反方的核心任务</h2>
+        
+        <div class="task-box">
+            <div class="task-title">正方（人类社会将更美好）</div>
+            <p class="content-text">需要论证在DIT成真状态下：</p>
+            <ul style="margin-top: 15px;">
+                <li class="content-text">· 人类社会在关键维度（如效率、稳定、信息质量、资源分配等）上取得了实质性的进步或解决了某些现有的重大问题。</li>
+                <li class="content-text">· 人类获得了新的自由、满足感或发展机遇（可能不同于传统形式）。</li>
+                <li class="content-text">· 其带来的积极影响在广度和深度上显著压倒其负面影响，并导向一个整体更优的社会形态。</li>
+            </ul>
+        </div>
+        
+        <div class="task-box">
+            <div class="task-title">反方（人类社会将更糟糕）</div>
+            <p class="content-text">需要论证在DIT成真状态下：</p>
+            <ul style="margin-top: 15px;">
+                <li class="content-text">· 人类社会在关键维度（如真实性、创造力、自主性、连接感、公平性等）上出现了严重的退化或引发了新的、不可承受的风险。</li>
+                <li class="content-text">· 人类的核心价值、尊严或发展潜力等受到了根本性的损害。</li>
+                <li class="content-text">· 其带来的负面影响是深刻、广泛且难以逆转的，并足以导致社会整体发展路径的恶化。</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

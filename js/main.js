@@ -288,15 +288,37 @@ window.DebateUtils = {
 function initPageLoader() {
     const loader = document.getElementById('pageLoader');
     
-    // 模拟加载时间
-    setTimeout(() => {
-        loader.classList.add('hidden');
-        // 加载完成后启动页面动画
+    // 检查是否是从其他页面返回
+    const referrer = document.referrer;
+    const currentHost = window.location.hostname;
+    const isFromDetailPage = referrer.includes('detail.html') || 
+                            referrer.includes('mobile.html') ||
+                            referrer.includes(currentHost);
+    
+    // 检查浏览器导航类型
+    const isBackNavigation = (performance.navigation && performance.navigation.type === 2) ||
+                             (performance.getEntriesByType && 
+                              performance.getEntriesByType('navigation')[0]?.type === 'back_forward');
+    
+    // 检查会话存储中是否有访问标记
+    const hasVisited = sessionStorage.getItem('hasVisitedMain');
+    
+    if (isFromDetailPage || isBackNavigation || hasVisited) {
+        // 如果是返回访问，立即隐藏加载器
+        loader.style.display = 'none';
+        startPageAnimations();
+    } else {
+        // 首次访问，显示加载动画并设置访问标记
+        sessionStorage.setItem('hasVisitedMain', 'true');
         setTimeout(() => {
-            loader.style.display = 'none';
-            startPageAnimations();
-        }, 500);
-    }, 1000);
+            loader.classList.add('hidden');
+            // 加载完成后启动页面动画
+            setTimeout(() => {
+                loader.style.display = 'none';
+                startPageAnimations();
+            }, 500);
+        }, 1000);
+    }
 }
 
 /**

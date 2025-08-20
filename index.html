@@ -14,6 +14,29 @@
     <link rel="icon" type="image/png" href="images/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <!-- Additional styles for detail links -->
+    <style>
+        .detail-link:hover {
+            background: var(--matrix-green) !important;
+            color: var(--bg-black) !important;
+            box-shadow: var(--shadow-green);
+            transform: translateY(-2px);
+        }
+        
+        .detail-link[style*="blue-cyber"]:hover {
+            background: var(--blue-cyber) !important;
+            color: var(--bg-black) !important;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .detail-link {
+                display: block !important;
+                margin: 10px auto !important;
+                width: fit-content;
+            }
+        }
+    </style>
     <!-- 移动端设备检测和跳转脚本 -->
     <script src="js/device-detector.js"></script>
 </head>
@@ -92,6 +115,16 @@
                     <br>
                     <p>论证AI主导将导致人类创造力衰退、真实性缺失、社会连接感丧失等消极后果</p>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="topic-detail.html" class="detail-link interactive-element" 
+                   style="display: inline-block; padding: 12px 24px; background: rgba(0, 255, 65, 0.1); 
+                          border: 1px solid var(--matrix-green); color: var(--matrix-green); 
+                          text-decoration: none; border-radius: 5px; transition: all 0.3s ease;
+                          font-family: 'Fira Code', monospace;">
+                    查看详细辩题解析 →
+                </a>
             </div>
         </div>
     </section>
@@ -186,6 +219,23 @@
                         <p>总时长约45分钟，包含评议和点评环节</p>
                     </div>
                 </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="rules-detail.html" class="detail-link interactive-element" 
+                   style="display: inline-block; padding: 12px 24px; background: rgba(0, 255, 65, 0.1); 
+                          border: 1px solid var(--matrix-green); color: var(--matrix-green); 
+                          text-decoration: none; border-radius: 5px; transition: all 0.3s ease;
+                          font-family: 'Fira Code', monospace;">
+                    详细赛制规则 →
+                </a>
+                <a href="scoring-detail.html" class="detail-link interactive-element" 
+                   style="display: inline-block; padding: 12px 24px; background: rgba(0, 212, 255, 0.1); 
+                          border: 1px solid var(--blue-cyber); color: var(--blue-cyber); 
+                          text-decoration: none; border-radius: 5px; transition: all 0.3s ease;
+                          font-family: 'Fira Code', monospace;">
+                    评分细则详解 →
+                </a>
             </div>
         </div>
     </section>

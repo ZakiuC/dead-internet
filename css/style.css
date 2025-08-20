@@ -197,6 +197,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
@@ -208,6 +209,7 @@ body {
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -243,6 +245,37 @@ body {
 /* ================================
    页面区块
    ================================ */
+
+/* 针对大屏幕优化导航栏 */
+@media (min-width: 1200px) {
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.9rem;
+        letter-spacing: 0.8px;
+    }
+}
+
+/* 针对中等屏幕优化导航栏 */
+@media (max-width: 1199px) and (min-width: 769px) {
+    .nav-links {
+        gap: 0.8rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        letter-spacing: 0.3px;
+    }
+    
+    .nav-container {
+        padding: 0 0.5rem;
+    }
+}
+
 .section {
     max-width: 1200px;
     margin: 0 auto;

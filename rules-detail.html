@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>赛制规则 - 丧尸互联网理论辩论赛</title>
+    <meta name="description" content="丧尸互联网理论辩论赛赛制规则详解">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .detail-container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 20px;
+            background: rgba(0, 20, 0, 0.8);
+            border: 1px solid var(--matrix-green);
+            border-radius: 10px;
+            box-shadow: var(--shadow-green);
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--matrix-green);
+            color: var(--matrix-green);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .back-button:hover {
+            background: var(--matrix-green);
+            color: var(--bg-black);
+            box-shadow: var(--shadow-green);
+        }
+        
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .detail-container {
+                margin: 80px 10px 30px;
+                padding: 15px;
+            }
+            
+            .detail-title {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .rules-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .rule-card {
+                padding: 1rem;
+            }
+            
+            .rule-title {
+                font-size: 1.1rem;
+            }
+            
+            .time-duration {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .detail-container {
+                margin: 70px 5px 20px;
+                padding: 10px;
+            }
+            
+            .detail-title {
+                font-size: 1.8rem;
+            }
+            
+            .back-button {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .rule-card {
+                padding: 0.8rem;
+            }
+        }
+        
+        .detail-title {
+            color: var(--matrix-green);
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 10px var(--matrix-green);
+        }
+        
+        .section-header {
+            color: var(--blue-cyber);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            border-bottom: 2px solid var(--blue-cyber);
+            padding-bottom: 10px;
+        }
+        
+        .overview-box {
+            background: rgba(0, 212, 255, 0.05);
+            border: 2px solid var(--blue-cyber);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        
+        .role-card {
+            background: rgba(0, 255, 65, 0.05);
+            border-left: 4px solid var(--matrix-green);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .role-title {
+            color: var(--matrix-green);
+            font-family: 'Orbitron', monospace;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .role-core {
+            color: var(--red-warning);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .flow-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--matrix-green);
+        }
+        
+        .flow-table th,
+        .flow-table td {
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            padding: 15px;
+            text-align: left;
+            vertical-align: top;
+        }
+        
+        .flow-table th {
+            background: rgba(0, 255, 65, 0.1);
+            color: var(--matrix-green);
+            font-family: 'Orbitron', monospace;
+            font-weight: bold;
+        }
+        
+        .flow-table td {
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+        
+        .time-col {
+            color: var(--blue-cyber);
+            font-weight: bold;
+            font-family: 'Orbitron', monospace;
+        }
+        
+        .speaker-col {
+            color: var(--matrix-green);
+            font-weight: bold;
+        }
+        
+        .total-time {
+            color: var(--red-warning);
+            font-weight: bold;
+        }
+        
+        .content-text {
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        
+        .content-text strong {
+            color: var(--matrix-green);
+        }
+        
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .bullet-list li {
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .bullet-list li::before {
+            content: "►";
+            position: absolute;
+            left: 0;
+            color: var(--matrix-green);
+            font-weight: bold;
+        }
+        
+        .highlight-text {
+            background: rgba(255, 255, 0, 0.2);
+            color: #ffffcc;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .rule-box {
+            background: rgba(255, 0, 64, 0.05);
+            border: 1px solid rgba(255, 0, 64, 0.3);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .rule-title {
+            color: var(--red-warning);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas class="matrix-canvas" id="matrix"></canvas>
+    
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">← 返回主页</a>
+    
+    <!-- Main Content -->
+    <div class="detail-container">
+        <h1 class="detail-title">// 赛制规则 RULES & FORMAT //</h1>
+        
+        <!-- Overview -->
+        <h2 class="section-header">赛制概述</h2>
+        <div class="overview-box">
+            <ul class="bullet-list">
+                <li><strong>形式：</strong> 采用标准三人制辩论赛制。</li>
+                <li><strong>队伍：</strong> 正方、反方，每队三位辩手（一辩、二辩、三辩）。</li>
+                <li><strong>核心环节：</strong> 立论陈词、质询环节、自由辩论、总结陈词。</li>
+                <li><strong>目标：</strong> 通过逻辑论证、论据支撑、反驳与防守，围绕辩题展开深入讨论，说服评委和观众。</li>
+            </ul>
+        </div>
+        
+        <!-- Roles -->
+        <h2 class="section-header">职能与角色</h2>
+        
+        <div class="role-card">
+            <div class="role-title">一辩 FIRST SPEAKER</div>
+            <div class="role-core">核心职责：立论陈词。</div>
+            <p class="content-text"><strong>任务：</strong> 清晰、全面、有逻辑地阐述本方核心观点、主要论据和论证框架，奠定本方立场基础。</p>
+            <p class="content-text"><strong>其他职责：</strong> 在自由辩论中辅助进攻与防守，回应与立论相关的质询。</p>
+        </div>
+        
+        <div class="role-card">
+            <div class="role-title">二辩 SECOND SPEAKER</div>
+            <div class="role-core">核心职责：质询与自由辩论主力。</div>
+            <p class="content-text"><strong>任务：</strong></p>
+            <ul class="bullet-list" style="margin-top: 10px;">
+                <li><strong>质询环节：</strong> 针对对方一辩立论进行精准、有力的提问，旨在暴露逻辑漏洞、澄清模糊点、削弱对方核心论点。</li>
+                <li><strong>自由辩论：</strong> 作为主力辩手，快速反应，进行有效反驳、推进己方论点、回应对方质疑，主导战场交锋。</li>
+            </ul>
+        </div>
+        
+        <div class="role-card">
+            <div class="role-title">三辩 THIRD SPEAKER</div>
+            <div class="role-core">核心职责：总结陈词与自由辩论主力。</div>
+            <p class="content-text"><strong>任务：</strong></p>
+            <ul class="bullet-list" style="margin-top: 10px;">
+                <li><strong>自由辩论：</strong> 与二辩协同作战，深化论证、弥补漏洞、发起或应对关键性质询。</li>
+                <li><strong>总结陈词：</strong> 系统梳理全场核心交锋点，清晰呈现己方论证脉络与优势，有力指出对方主要漏洞与不足，进行价值升华，巩固本方立场。</li>
+            </ul>
+        </div>
+        
+        <div class="rule-box">
+            <div class="rule-title">团队协作要求</div>
+            <p class="content-text">所有辩手在自由辩论中需紧密配合，互相提示、补充、策应。</p>
+        </div>
+        
+        <!-- Flow -->
+        <h2 class="section-header">比赛流程</h2>
+        
+        <table class="flow-table">
+            <thead>
+                <tr>
+                    <th>环节</th>
+                    <th>发言方</th>
+                    <th>时间</th>
+                    <th>说明</th>
+                    <th>小计</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2"><strong>1. 立论陈词</strong></td>
+                    <td class="speaker-col">正方一辩</td>
+                    <td class="time-col">5分钟</td>
+                    <td><strong>任务：</strong> 清晰、完整阐述正方核心观点、主要论据和论证逻辑体系。奠定正方立场基础。<br><strong>要求：</strong> 结构清晰，论据有力，逻辑自洽。</td>
+                    <td class="time-col">5分钟</td>
+                </tr>
+                <tr>
+                    <td class="speaker-col">反方一辩</td>
+                    <td class="time-col">5分钟</td>
+                    <td><strong>任务：</strong> 清晰、完整阐述反方核心观点、主要论据和论证逻辑体系。奠定反方立场基础。<br><strong>要求：</strong> 结构清晰，论据有力，逻辑自洽，需针对正方立论框架进行针对性构建或预判。</td>
+                    <td class="time-col">10分钟</td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><strong>2. 质询环节</strong></td>
+                    <td class="speaker-col">反方二辩 (质询方)<br>正方一辩 (回答方)</td>
+                    <td class="time-col">3分钟</td>
+                    <td>
+                        <div class="rule-box" style="margin: 5px 0;">
+                            <div class="rule-title">规则要点：</div>
+                            <ul class="bullet-list">
+                                <li><strong>质询方 (反方二辩)：</strong> 针对正方一辩的立论内容进行提问。提问应明确、具体，旨在指出漏洞、澄清模糊点、削弱对方论点。</li>
+                                <li><strong>回答方 (正方一辩)：</strong> 必须直接回答问题，<span class="highlight-text">不得反问、回避或进行长篇论述</span>。回答应简洁、切题。</li>
+                                <li><strong>节奏控制：</strong> <span class="highlight-text">质询方主导</span>。质询方有权在回答方明显偏离问题、超时或进行不当论述时合理打断并要求其回到问题本身。</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td class="time-col">13分钟</td>
+                </tr>
+                <tr>
+                    <td class="speaker-col">正方二辩 (质询方)<br>反方一辩 (回答方)</td>
+                    <td class="time-col">3分钟</td>
+                    <td>
+                        <div class="rule-box" style="margin: 5px 0;">
+                            <div class="rule-title">规则要点：</div>
+                            <ul class="bullet-list">
+                                <li><strong>质询方 (正方二辩)：</strong> 针对反方一辩的立论内容进行提问。</li>
+                                <li><strong>回答方 (反方一辩)：</strong> 必须直接回答问题，<span class="highlight-text">不得反问、回避或进行长篇论述</span>。</li>
+                                <li><strong>节奏控制：</strong> <span class="highlight-text">质询方主导</span>。规则同上。</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td class="time-col">16分钟</td>
+                </tr>
+                <tr>
+                    <td><strong>3. 自由辩论</strong></td>
+                    <td class="speaker-col">双方所有辩手<br>（通常二、三辩主导）</td>
+                    <td class="time-col">8分钟</td>
+                    <td>
+                        <div class="rule-box" style="margin: 5px 0;">
+                            <div class="rule-title">规则关键：</div>
+                            <ul class="bullet-list">
+                                <li><strong>交替发言：</strong> 严格遵循交替发言原则。一方辩手发言完毕并<span class="highlight-text">落座</span>后，另一方辩手方可<span class="highlight-text">起立</span>发言。<span class="highlight-text">通常由反方先行发言</span>。</li>
+                                <li><strong>发言简短聚焦：</strong> 每次发言时长建议控制在 <span class="highlight-text">25-40秒</span> 内。发言内容应聚焦于一个明确的论点进行<span class="highlight-text">反驳</span>、<span class="highlight-text">论证推进</span>或<span class="highlight-text">有效提问</span>，避免冗长陈述。</li>
+                                <li><strong>团队合作：</strong> 同队辩手可进行简短提示（如递纸条、耳语等），但<span class="highlight-text">严禁代发言</span>或干扰对方发言。</li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td class="time-col">24分钟</td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><strong>4. 总结陈词</strong></td>
+                    <td class="speaker-col">反方三辩</td>
+                    <td class="time-col">5分钟</td>
+                    <td>
+                        <strong>任务：</strong><br>
+                        <ul class="bullet-list">
+                            <li>系统梳理整场比赛的核心交锋点。</li>
+                            <li>清晰呈现反方论证的完整逻辑与核心优势。</li>
+                            <li>精准指出正方在论证、论据、逻辑上的主要漏洞与不足。</li>
+                            <li>对反方立场进行价值层面的升华，深化论述意义。</li>
+                        </ul>
+                        <strong>要求：</strong> 避免简单重复立论，应基于全场辩论进行总结与提升。<span class="highlight-text">禁止引入全新论点或论据</span>。
+                    </td>
+                    <td class="time-col">29分钟</td>
+                </tr>
+                <tr>
+                    <td class="speaker-col">正方三辩</td>
+                    <td class="time-col">5分钟</td>
+                    <td>
+                        <strong>任务：</strong><br>
+                        <ul class="bullet-list">
+                            <li>系统梳理整场比赛的核心交锋点。</li>
+                            <li>清晰呈现正方论证的完整逻辑与核心优势。</li>
+                            <li>精准指出反方在论证、论据、逻辑上的主要漏洞与不足。</li>
+                            <li>对正方立场进行价值层面的升华，深化论述意义。</li>
+                        </ul>
+                        <strong>要求：</strong> 同上。
+                    </td>
+                    <td class="time-col">34分钟</td>
+                </tr>
+                <tr>
+                    <td><strong>5. 评委退席评议 /<br>观众互动</strong></td>
+                    <td></td>
+                    <td class="time-col">5-10分钟</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li><strong>评委评议：</strong> 评委退席进行闭门讨论（本次无退席环节），根据既定评判标准（如逻辑、论据、反驳、台风、团队协作等）确定<span class="highlight-text">胜方</span>和<span class="highlight-text">最佳辩手</span>。</li>
+                            <li><strong>观众互动（可选）：</strong> 在评委评议期间或之后，可安排观众向双方辩手提问或简短发表看法。主持人需控制时间和秩序。</li>
+                        </ul>
+                    </td>
+                    <td class="time-col">39-44分钟</td>
+                </tr>
+                <tr>
+                    <td><strong>6. 宣布结果与点评</strong></td>
+                    <td class="speaker-col">主持人/评委</td>
+                    <td class="time-col">2-5分钟</td>
+                    <td>
+                        <ul class="bullet-list">
+                            <li><strong>宣布结果：</strong> 由主持人宣布比赛最终结果（胜方）及最佳辩手（若有评选）。</li>
+                            <li><strong>评委点评：</strong> 由一位评委代表或所有评委进行<span class="highlight-text">简短、针对性</span>的点评。点评应聚焦于：整场比赛的亮点（如精彩交锋、有力论证）；双方的主要优势与不足（逻辑、论据、反驳技巧、台风等）；核心争议点的处理情况。</li>
+                        </ul>
+                        <strong>要求：</strong> 点评应专业、公正、建设性，避免冗长或仅宣布结果。
+                    </td>
+                    <td class="total-time">总时长：<br>41-49分钟</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Evaluation System -->
+        <h2 class="section-header">评分系统</h2>
+        <div class="overview-box">
+            <p class="content-text" style="text-align: center; font-size: 1.2rem;">
+                详见 <a href="scoring-detail.html" style="color: var(--matrix-green); text-decoration: none; border-bottom: 1px solid var(--matrix-green);">评分表</a>
+            </p>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
